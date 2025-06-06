@@ -1,11 +1,83 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
+import Welcome from "../components/Welcome.astro";
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+import GitHubIcon from "../components/icons/GitHubIcon.astro";
+import SocialPill from "../components/SocialPill.astro";
+import MailIcon from "../components/icons/MailIcon.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Code from "../components/icons/Code.astro";
+import Projects from "../components/Projects.astro";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="portafolio de javier - desarrolador y programador web full stack"
+	description="Portafolio de Javier Solis, ingeniero en desarrollo de software, desarrollador web full stack, programador y amante de la tecnologia."
+>
+	<main>
+		
+		<SectionContainer id="about"></SectionContainer>
+		<section class="w-full mx-auto lg:w-[740px] py-10">
+			<img
+				class="rounded-full w-30 h-30 mb-5"
+				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmFEsSIwtZthljrPkKAMHKEsBhi4Mr5ZC8Iw&s"
+				alt="javier´s foto"
+			/>
+			<h1
+				class="text-white text-3xl font-bold flex flex-row gap-x-3 pb-10"
+			>
+				Hey I'm <span class="text-yellow-400">Javier Solis 💻</span><a
+					href="https://www.linkedin.com/in/francisco-javier-solis-bamaca-5776a21ba/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="flex justify-center items-center"
+				>
+					<Badge>Open To Work ✅</Badge>
+				</a>
+			</h1>
+			<h2 class="text-2xl text-wrap">
+				Software Engineer | Web Development 🌐
+				<br />
+				Driving innovation through scalable web solutions Full Stack Developer
+				building transformative digital experiences.
+			</h2>
+			<SectionContainer id="contact"></SectionContainer>
+			<nav class="flex gap-x-2 mt-5">
+				<SocialPill
+					href="https://www.linkedin.com/in/francisco-javier-solis-bamaca-5776a21ba/"
+				>
+					<LinkedInIcon class="w-6 h-6" />
+					LinkedIn
+				</SocialPill>
+				<SocialPill href="https://github.com/javier-solis-b">
+					<GitHubIcon class="w-6 h-6" />
+					GitHub
+				</SocialPill>
+				<SocialPill href="mailto:javijsol97@gmail.com">
+					<MailIcon class="w-6 h-6" />
+					javijsol97@gmail.com
+				</SocialPill>
+			</nav>
+			<hr class="border-t border-gray-600 opacity-30 my-8 w-full" />
+			<div class="flex flex-col justify-start w-full">
+				<SectionContainer id="experience"></SectionContainer>
+				<Experience />
+			</div>
+				<hr class="border-t border-gray-600 opacity-30 my-8 w-full" />
+			<SectionContainer id="projects">
+				<h1 class="text-3xl font-extrabold text-white flex items-center gap-2 mb-8">
+					<Code class="w-8 h-8 text-yellow-400" />
+					Projects
+				</h1>
+				<Projects />
+			</SectionContainer>
+		
+
+		</section>
+	
+	</main>
 </Layout>

@@ -1,48 +1,63 @@
-# Astro Starter Kit: Basics
+# Javier Solis Portfolio
 
-```sh
-npm create astro@latest -- --template basics
+This is the personal portfolio website of Javier Solis, a Full Stack Web Developer and Software Engineer. Built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/), it showcases professional experience, projects, and contact information in a modern, responsive design.
+
+## 🚀 Features
+
+- **Responsive Design:** Looks great on all devices.
+- **Professional Timeline:** Highlights work experience with impactful descriptions.
+- **Projects Section:** Showcases featured projects with live preview and GitHub links.
+- **Contact & Social Links:** Easy access to LinkedIn, GitHub, and email.
+- **Modern UI:** Built with Astro, Tailwind CSS, and custom components.
+
+## 📦 Tech Stack
+
+- Astro
+- Tailwind CSS
+- JavaScript
+- Node.js
+- Vue.js
+- MySQL
+
+## 📁 Project Structure
+
+```
+public/
+  projects/           # Project images
+src/
+  components/         # Astro components (Experience, Projects, etc.)
+  layouts/            # Layout components
+  pages/              # Main pages (index.astro)
+  styles/             # Global styles
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🛠️ Setup & Development
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
+4. **Preview production build:**
+   ```bash
+   npm run preview
+   ```
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🌐 Live Preview
 
-## 🚀 Project Structure
+You can view the deployed portfolio [here](https://silly-naiad-763080.netlify.app/).
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📄 License
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+This project is open source and available under the [MIT License](LICENSE).
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to fork, use, or contribute to this portfolio!
