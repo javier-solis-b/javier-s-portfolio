@@ -10,14 +10,7 @@ This is the personal portfolio website of Javier Solis, a Full Stack Web Develop
 - **Contact & Social Links:** Easy access to LinkedIn, GitHub, and email.
 - **Modern UI:** Built with Astro, Tailwind CSS, and custom components.
 
-## 📦 Tech Stack
 
-- Astro
-- Tailwind CSS
-- JavaScript
-- Node.js
-- Vue.js
-- MySQL
 
 ## 📁 Project Structure
 
@@ -54,10 +47,4 @@ src/
 
 You can view the deployed portfolio [here](https://silly-naiad-763080.netlify.app/).
 
-## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-Feel free to fork, use, or contribute to this portfolio!

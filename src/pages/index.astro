@@ -10,6 +10,7 @@ import Experience from "../components/Experience.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Code from "../components/icons/Code.astro";
 import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -19,16 +20,15 @@ import Projects from "../components/Projects.astro";
 	description="Portafolio de Javier Solis, ingeniero en desarrollo de software, desarrollador web full stack, programador y amante de la tecnologia."
 >
 	<main>
-		
 		<SectionContainer id="about"></SectionContainer>
-		<section class="w-full mx-auto lg:w-[740px] py-10">
+		<section class="w-full max-w-3xl mx-auto px-4 sm:px-6 py-10">
 			<img
-				class="rounded-full w-30 h-30 mb-5"
+				class="rounded-full w-28 h-28 sm:w-32 sm:h-32 mb-5 mx-auto z-30 relative"
 				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmFEsSIwtZthljrPkKAMHKEsBhi4Mr5ZC8Iw&s"
 				alt="javier´s foto"
 			/>
 			<h1
-				class="text-white text-3xl font-bold flex flex-row gap-x-3 pb-10"
+				class="text-white text-3xl font-bold flex flex-col sm:flex-row gap-x-3 gap-y-2 pb-6 items-center justify-center text-center"
 			>
 				Hey I'm <span class="text-yellow-400">Javier Solis 💻</span><a
 					href="https://www.linkedin.com/in/francisco-javier-solis-bamaca-5776a21ba/"
@@ -39,14 +39,14 @@ import Projects from "../components/Projects.astro";
 					<Badge>Open To Work ✅</Badge>
 				</a>
 			</h1>
-			<h2 class="text-2xl text-wrap">
+			<h2 class="text-2xl text-wrap text-center">
 				Software Engineer | Web Development 🌐
 				<br />
 				Driving innovation through scalable web solutions Full Stack Developer
 				building transformative digital experiences.
 			</h2>
 			<SectionContainer id="contact"></SectionContainer>
-			<nav class="flex gap-x-2 mt-5">
+			<nav class="flex flex-col sm:flex-row gap-2 mt-5 justify-center items-center">
 				<SocialPill
 					href="https://www.linkedin.com/in/francisco-javier-solis-bamaca-5776a21ba/"
 				>
@@ -59,15 +59,39 @@ import Projects from "../components/Projects.astro";
 				</SocialPill>
 				<SocialPill href="mailto:javijsol97@gmail.com">
 					<MailIcon class="w-6 h-6" />
-					javijsol97@gmail.com
+					javijsol96@gmail.com
 				</SocialPill>
+				<a
+					href="/cv-javier-solis.pdf"
+					download
+					class="flex items-center gap-2 px-4 py-2 mt-2 sm:mt-0 bg-yellow-400 text-black font-semibold rounded hover:bg-yellow-300 transition-colors shadow"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-5 w-5"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"
+						/>
+					</svg>
+					Descargar CV
+				</a>
 			</nav>
 			<hr class="border-t border-gray-600 opacity-30 my-8 w-full" />
 			<div class="flex flex-col justify-start w-full">
 				<SectionContainer id="experience"></SectionContainer>
 				<Experience />
+				<SectionContainer id="skills">
+					<Skills />
+				</SectionContainer>
 			</div>
-				<hr class="border-t border-gray-600 opacity-30 my-8 w-full" />
+			<hr class="border-t border-gray-600 opacity-30 my-8 w-full" />
 			<SectionContainer id="projects">
 				<h1 class="text-3xl font-extrabold text-white flex items-center gap-2 mb-8">
 					<Code class="w-8 h-8 text-yellow-400" />
@@ -75,9 +99,6 @@ import Projects from "../components/Projects.astro";
 				</h1>
 				<Projects />
 			</SectionContainer>
-		
-
 		</section>
-	
 	</main>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 // Supports weights 100-900
 import "@fontsource-variable/onest";
@@ -14,10 +15,13 @@ import "@fontsource-variable/onest";
 		<meta name="generator" content={Astro.generator} />
 		<title>{Astro.props.title || 'Default Title'}</title>
 	</head>
-	<body>
-	    <div class="relative h-full w-full bg-slate-950"><div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-		<Header />
-		<slot />
+	<body class="min-h-screen w-full bg-slate-950">
+	    <div class="relative min-h-screen w-full overflow-x-hidden">
+	      <div class="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+	      <Header />
+	      <slot />
+	      <Footer />
+	    </div>
 	</body>
 </html>
 

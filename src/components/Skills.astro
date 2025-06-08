@@ -1,0 +1,64 @@
+---
+const FRONTEND = [
+  { name: "JavaScript", color: "bg-yellow-400 text-gray-900" },
+  { name: "Vue.js", color: "bg-green-400 text-white" },
+  { name: "HTML", color: "bg-orange-500 text-white" },
+  { name: "CSS", color: "bg-blue-400 text-white" },
+  { name: "Astro", color: "bg-purple-500 text-white" },
+  { name: "Tailwind CSS", color: "bg-cyan-400 text-white" },
+];
+const BACKEND = [
+  { name: "Node.js", color: "bg-green-600 text-white" },
+  { name: "Python", color: "bg-yellow-300 text-gray-900" },
+  { name: "Java", color: "bg-red-500 text-white" },
+  { name: "C", color: "bg-blue-500 text-white" },
+  { name: "PHP", color: "bg-purple-500 text-white" },
+];
+const DATABASES = [
+  { name: "MySQL", color: "bg-blue-500 text-white" },
+  { name: "PostgreSql", color: "bg-blue-500 text-white" },
+];
+const TOOLS = [
+  { name: "Git", color: "bg-orange-400 text-white" },
+];
+---
+<section class="mb-12">
+  <h1 class="text-3xl md:text-4xl font-extrabold text-white flex items-center gap-2 mb-6 md:mb-8">
+    <svg class="w-7 h-7 md:w-8 md:h-8 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.72 11.06a2 2 0 0 0-2.78-2.78l-1.06 1.06-1.06-1.06a2 2 0 0 0-2.78 2.78l1.06 1.06-1.06 1.06a2 2 0 0 0 2.78 2.78l1.06-1.06 1.06 1.06a2 2 0 0 0 2.78-2.78l-1.06-1.06 1.06-1.06z"/></svg>
+    Skills
+  </h1>
+  <div class="flex flex-col gap-4 md:gap-6">
+    <div>
+      <h2 class="text-base md:text-lg font-bold text-yellow-400 mb-1 md:mb-2">Frontend</h2>
+      <div class="flex flex-wrap gap-2 md:gap-3">
+        {FRONTEND.map(skill => (
+          <span class={`px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-semibold shadow-md text-xs md:text-sm ${skill.color}`}>{skill.name}</span>
+        ))}
+      </div>
+    </div>
+    <div>
+      <h2 class="text-base md:text-lg font-bold text-yellow-400 mb-1 md:mb-2">Backend</h2>
+      <div class="flex flex-wrap gap-2 md:gap-3">
+        {BACKEND.map(skill => (
+          <span class={`px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-semibold shadow-md text-xs md:text-sm ${skill.color}`}>{skill.name}</span>
+        ))}
+      </div>
+    </div>
+    <div>
+      <h2 class="text-base md:text-lg font-bold text-yellow-400 mb-1 md:mb-2">Databases</h2>
+      <div class="flex flex-wrap gap-2 md:gap-3">
+        {DATABASES.map(skill => (
+          <span class={`px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-semibold shadow-md text-xs md:text-sm ${skill.color}`}>{skill.name}</span>
+        ))}
+      </div>
+    </div>
+    <div>
+      <h2 class="text-base md:text-lg font-bold text-yellow-400 mb-1 md:mb-2">Tools</h2>
+      <div class="flex flex-wrap gap-2 md:gap-3">
+        {TOOLS.map(skill => (
+          <span class={`px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-semibold shadow-md text-xs md:text-sm ${skill.color}`}>{skill.name}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

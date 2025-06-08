@@ -1,11 +1,41 @@
-<header class="flex justify-center items-center py-5 w-full  xl:w-[1120px] mx-auto">
-
-    <nav class="flex flex-row gap-x-10 opacity-80">
-        <a href="/">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="/cv">CV</a>
-    </nav>
+---
+// Eliminamos la lógica de isOpen y toggleMenu porque no funciona en el cliente
+---
+<header class="flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto">
+  <button id="menu-toggle" class="md:hidden absolute left-5 top-6 z-20 cursor-pointer" aria-label="Abrir menú" tabindex="0">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+  <nav id="main-nav" class="hidden md:flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-0 md:gap-x-10 text-white bg-gray-900 bg-opacity-95 md:bg-transparent px-8 py-6 md:p-0 rounded-lg shadow-lg md:shadow-none fixed md:static top-16 left-4 right-4 z-50 transition-all duration-300 space-y-4 md:space-y-0">
+    <a href="/" class="block w-full text-center py-2 rounded hover:bg-gray-800 transition-colors">Home</a>
+    <a href="#about" class="block w-full text-center py-2 rounded hover:bg-gray-800 transition-colors">About</a>
+    <a href="#contact" class="block w-full text-center py-2 rounded hover:bg-gray-800 transition-colors">Contact</a>
+    <a href="#experience" class="block w-full text-center py-2 rounded hover:bg-gray-800 transition-colors">Experience</a>
+    <a href="#skills" class="block w-full text-center py-2 rounded hover:bg-gray-800 transition-colors">Skills</a>
+    <a href="#projects" class="block w-full text-center py-2 rounded hover:bg-gray-800 transition-colors">Projects</a>
+  </nav>
+  <script is:inline>
+    // Script para alternar el menú hamburguesa en móvil
+    if (typeof window !== 'undefined') {
+      const btn = document.getElementById('menu-toggle');
+      const nav = document.getElementById('main-nav');
+      btn.addEventListener('click', () => {
+        nav.classList.toggle('hidden');
+      });
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          nav.classList.toggle('hidden');
+        }
+      });
+      // Cerrar menú al hacer click en un enlace (solo móvil)
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 768) {
+            nav.classList.add('hidden');
+          }
+        });
+      });
+    }
+  </script>
 </header>
