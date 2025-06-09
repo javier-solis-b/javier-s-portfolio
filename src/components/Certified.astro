@@ -1,0 +1,122 @@
+---
+const PROJECTS = [
+  {
+    title: "Oracle Certified Fundations Associate",
+    description: "Oracle Cloud Infrastructure 2023 Certified Foundations Associate",
+    image: "/projects/oracle-certified.png",
+    date: "September 14, 2023",
+  },
+  {
+    title: "Preparing for Google Cloud Certification: Cloud Developer",
+    description: "A Cloud Developer designs, builds, analyzes, and maintains cloud-native applications.",
+    image: "/projects/google-cloud-certified.png",
+    date: "Jan 31, 2024",
+  },
+  {
+    title: "C for Everyone: Programming Fundamentals",
+    image: "/projects/course-c.jpg",
+    date: "04-nov - 2020",
+  },
+];
+---
+<div class="relative w-full max-w-2xl mx-auto">
+  <div class="overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-gray-800 via-gray-900 to-black border border-yellow-400/30">
+    <div id="carousel-track" class="transition-all duration-700 flex" style="transform: translateX(0%);">
+      {PROJECTS.map((project, idx) => (
+        <div class="min-w-full flex flex-col items-center p-8 md:p-12" aria-hidden="false">
+          <div class="relative group w-full flex justify-center">
+            <img src={project.image} alt={project.title}
+              class="object-contain h-64 md:h-80 w-full max-w-lg rounded-xl border-4 border-yellow-400 shadow-xl bg-white transition-transform duration-300 group-hover:scale-105 group-hover:shadow-2xl cursor-zoom-in"
+              style="background: linear-gradient(135deg, #fffbe6 0%, #fff 100%);"
+              data-modal-img={idx}
+            />
+          </div>
+          <h3 class="text-2xl md:text-3xl font-extrabold text-yellow-300 drop-shadow mb-2 text-center mt-6">{project.title}</h3>
+          {project.description && <p class="text-gray-200 text-base md:text-lg mb-2 text-center leading-relaxed">{project.description}</p>}
+          <p class="text-yellow-200 mb-3 text-sm italic">{project.date}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+  <button type="button" id="carousel-prev" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black bg-opacity-60 hover:bg-yellow-400 hover:text-gray-900 text-yellow-400 rounded-full p-3 shadow-2xl transition-all z-10 border-2 border-yellow-400/60 scale-110 hover:scale-125" aria-label="Anterior">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+  </button>
+  <button type="button" id="carousel-next" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black bg-opacity-60 hover:bg-yellow-400 hover:text-gray-900 text-yellow-400 rounded-full p-3 shadow-2xl transition-all z-10 border-2 border-yellow-400/60 scale-110 hover:scale-125" aria-label="Siguiente">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+  </button>
+  <div class="flex justify-center mt-6 gap-3">
+    {PROJECTS.map((_, idx) => (
+      <button type="button" class="w-4 h-4 rounded-full transition-all duration-300 border-2 border-yellow-400 bg-gray-700" data-dot={idx} aria-label={`Ir al slide ${idx + 1}`}></button>
+    ))}
+  </div>
+</div>
+{/* Modal para imagen grande */}
+<div id="modal-img-viewer" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+  <div class="relative bg-gray-900 rounded-lg shadow-2xl p-4 max-w-2xl w-full flex flex-col items-center">
+    <button type="button" id="modal-img-close" class="absolute top-6 right-6 text-yellow-400 text-4xl font-extrabold hover:text-yellow-500 transition-colors" aria-label="Cerrar">&times;</button>
+    <img id="modal-img" src="" alt="Certificado grande" class="max-h-[70vh] w-auto rounded-lg border-4 border-yellow-400 shadow-xl" />
+  </div>
+</div>
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  let current = 0;
+  const total = 3; // <-- Cambia este valor si agregas/quitas certificados
+  const track = document.getElementById('carousel-track');
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  const dots = Array.from(document.querySelectorAll('[data-dot]'));
+
+  function updateCarousel() {
+    if (track) track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('bg-yellow-400', idx === current);
+      dot.classList.toggle('scale-125', idx === current);
+    });
+  }
+  if (prevBtn && nextBtn && track) {
+    prevBtn.onclick = () => {
+      current = (current - 1 + total) % total;
+      updateCarousel();
+    };
+    nextBtn.onclick = () => {
+      current = (current + 1) % total;
+      updateCarousel();
+    };
+    dots.forEach((dot, idx) => {
+      dot.onclick = () => {
+        current = idx;
+        updateCarousel();
+      };
+    });
+    updateCarousel();
+  }
+
+  // Modal de imagen grande
+  const modal = document.getElementById('modal-img-viewer');
+  const modalImg = document.getElementById('modal-img');
+  const modalClose = document.getElementById('modal-img-close');
+  const imgs = document.querySelectorAll('[data-modal-img]');
+  imgs.forEach((img, idx) => {
+    img.addEventListener('click', () => {
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      modal.classList.remove('hidden');
+    });
+  });
+  if (modalClose) {
+    modalClose.onclick = () => {
+      modal.classList.add('hidden');
+      modalImg.src = '';
+    };
+  }
+  // Cerrar modal al hacer click fuera de la imagen
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        modalImg.src = '';
+      }
+    });
+  }
+});
+</script>
